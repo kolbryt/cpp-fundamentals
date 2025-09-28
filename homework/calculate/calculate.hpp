@@ -9,5 +9,8 @@ std::string calculate(const std::string& command, int first, int second) {
     if(command == "subtract") {
         result = std::to_string(first - second);
     }
+    if(command == "multiply") {
+        result = std::to_string(first * second);
+    }
     return result;
 }
