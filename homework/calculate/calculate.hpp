@@ -3,20 +3,19 @@
 
 std::string calculate(const std::string& command, int first, int second) {
     std::string result{"Invalid data"};
-    if(command == "add") {
+    if (command == "add") {
         result = std::to_string(first + second);
     }
-    if(command == "subtract") {
+    if (command == "subtract") {
         result = std::to_string(first - second);
     }
-    if(command == "multiply") {
+    if (command == "multiply") {
         result = std::to_string(first * second);
     }
-    if(command == "divide") {
-        if(second == 0) {
+    if (command == "divide") {
+        if (second == 0) {
             result = "Division by 0";
-        }
-        else {
+        } else {
             result = std::to_string(first / second);
         }
     }
