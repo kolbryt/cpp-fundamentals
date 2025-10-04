@@ -9,9 +9,6 @@ int NWD(int lhs, int rhs) {
         }
         return std::abs(lhs);
     }
-    if (rhs == 0) {
-        return std::abs(lhs);
-    }
     if (rhs < 0) {
         rhs = std::abs(rhs);
     }
