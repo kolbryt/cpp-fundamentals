@@ -1,6 +1,9 @@
 #pragma once
 
 int NWD(int lhs, int rhs) {
+    if (rhs == 0) {
+        return lhs;
+    }
     if (lhs % rhs == 0) {
         return rhs;
     }
