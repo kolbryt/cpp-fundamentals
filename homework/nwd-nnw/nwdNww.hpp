@@ -4,6 +4,9 @@ int NWD(int lhs, int rhs) {
     if (rhs == 0) {
         return lhs;
     }
+    if (rhs < 0) {
+        rhs *= -1;
+    }
     if (lhs % rhs == 0) {
         return rhs;
     }
