@@ -2,8 +2,11 @@
 #include <vector>
 
 int addEven(const std::vector<int>& numbers) {
-    if (numbers.size() == 0) {
-        return 0;
+    int result{0};
+    for (int i{0}; i < numbers.size(); ++i) {
+        if (numbers[i] % 2 == 0) {
+            result += numbers[i];
+        }
     }
-    return -1;
+    return result;
 }
