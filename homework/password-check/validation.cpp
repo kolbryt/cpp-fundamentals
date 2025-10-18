@@ -1,11 +1,11 @@
-#include <string>
+#include "validation.hpp"
 #include <algorithm>
 #include <cctype>
-#include "validation.hpp"
+#include <string>
 
 std::string getErrorMessage(const ErrorCode errorCode) {
     std::string errorMessage{};
-    switch(errorCode) {
+    switch (errorCode) {
     case ErrorCode::Ok:
         errorMessage = "Ok";
         break;
@@ -40,13 +40,13 @@ ErrorCode checkPasswordRules(const std::string& password) {
     if (password.size() < 9) {
         errorCode = ErrorCode::PasswordNeedsAtLeastNineCharacters;
     }
-    if (std::none_of(password.cbegin(), password.cend(), [](const char c){return std::isdigit(c);})) {
+    if (std::none_of(password.cbegin(), password.cend(), [](const char c) { return std::isdigit(c); })) {
         errorCode = ErrorCode::PasswordNeedsAtLeastOneNumber;
     }
-    if (std::none_of(password.cbegin(), password.cend(), [](const char c){return std::ispunct(c);})) {
+    if (std::none_of(password.cbegin(), password.cend(), [](const char c) { return std::ispunct(c); })) {
         errorCode = ErrorCode::PasswordNeedsAtLeastOneSpecialCharacter;
     }
-    if (std::none_of(password.cbegin(), password.cend(), [](const char c){return std::isupper(c);})) {
+    if (std::none_of(password.cbegin(), password.cend(), [](const char c) { return std::isupper(c); })) {
         errorCode = ErrorCode::PasswordNeedsAtLeastOneUppercaseLetter;
     }
     return errorCode;
