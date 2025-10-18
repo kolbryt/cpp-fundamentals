@@ -1,4 +1,6 @@
 #include <string>
+#include <algorithm>
+#include <cctype>
 #include "validation.hpp"
 
 std::string getErrorMessage(const ErrorCode errorCode) {
@@ -34,7 +36,20 @@ bool doPasswordsMatch(const std::string& password, const std::string& repeatedPa
 }
 
 ErrorCode checkPasswordRules(const std::string& password) {
-    return ErrorCode::Ok;
+    ErrorCode errorCode{ErrorCode::Ok};
+    if (password.size() < 9) {
+        errorCode = ErrorCode::PasswordNeedsAtLeastNineCharacters;
+    }
+    if (std::none_of(password.cbegin(), password.cend(), [](const char c){return std::isdigit(c);})) {
+        errorCode = ErrorCode::PasswordNeedsAtLeastOneNumber;
+    }
+    if (std::none_of(password.cbegin(), password.cend(), [](const char c){return std::ispunct(c);})) {
+        errorCode = ErrorCode::PasswordNeedsAtLeastOneSpecialCharacter;
+    }
+    if (std::none_of(password.cbegin(), password.cend(), [](const char c){return std::isupper(c);})) {
+        errorCode = ErrorCode::PasswordNeedsAtLeastOneUppercaseLetter;
+    }
+    return errorCode;
 }
 
 ErrorCode checkPassword(const std::string& password, const std::string& repeatedPassowrd) {
