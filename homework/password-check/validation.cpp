@@ -37,3 +37,10 @@ bool doPasswordsMatch(std::string password, std::string repeatedPassword) {
 ErrorCode checkPasswordRules(std::string password) {
     return ErrorCode::Ok;
 }
+
+ErrorCode checkPassword(std::string password, std::string repeatedPassowrd) {
+    if (!doPasswordsMatch(password, repeatedPassowrd)) {
+        return ErrorCode::PasswordsDoNotMatch;
+    }
+    return checkPasswordRules(password);
+}
