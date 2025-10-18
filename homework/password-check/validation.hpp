@@ -14,3 +14,5 @@ enum class ErrorCode {
 };
 
 std::string getErrorMessage(ErrorCode errorCode);
+
+bool doPasswordsMatch(std::string password, std::string repeatedPassword);
