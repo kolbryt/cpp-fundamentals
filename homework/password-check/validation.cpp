@@ -1,7 +1,7 @@
 #include <string>
 #include "validation.hpp"
 
-std::string getErrorMessage(ErrorCode errorCode) {
+std::string getErrorMessage(const ErrorCode errorCode) {
     std::string errorMessage{};
     switch(errorCode) {
     case ErrorCode::Ok:
@@ -26,17 +26,18 @@ std::string getErrorMessage(ErrorCode errorCode) {
         errorMessage = "An unkown error occured";
         break;
     }
+    return errorMessage;
 }
 
-bool doPasswordsMatch(std::string password, std::string repeatedPassword) {
+bool doPasswordsMatch(const std::string& password, const std::string& repeatedPassword) {
     return password == repeatedPassword;
 }
 
-ErrorCode checkPasswordRules(std::string password) {
+ErrorCode checkPasswordRules(const std::string& password) {
     return ErrorCode::Ok;
 }
 
-ErrorCode checkPassword(std::string password, std::string repeatedPassowrd) {
+ErrorCode checkPassword(const std::string& password, const std::string& repeatedPassowrd) {
     if (!doPasswordsMatch(password, repeatedPassowrd)) {
         return ErrorCode::PasswordsDoNotMatch;
     }
