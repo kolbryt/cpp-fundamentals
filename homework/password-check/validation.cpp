@@ -33,3 +33,7 @@ std::string getErrorMessage(ErrorCode errorCode) {
 bool doPasswordsMatch(std::string password, std::string repeatedPassword) {
     return password == repeatedPassword;
 }
+
+ErrorCode checkPasswordRules(std::string password) {
+    return ErrorCode::Ok;
+}
