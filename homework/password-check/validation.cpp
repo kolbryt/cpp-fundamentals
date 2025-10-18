@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include "validation.hpp"
-// TODO: Put implementations here
 
 std::string getErrorMessage(ErrorCode errorCode) {
     std::string errorMessage{};
