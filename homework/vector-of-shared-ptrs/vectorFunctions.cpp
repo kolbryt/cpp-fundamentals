@@ -11,7 +11,7 @@ std::vector<std::shared_ptr<int>> generate(int count) {
 }
 
 void print(std::vector<std::shared_ptr<int>>& vec) {
-    std::cout << "Vector elements: ";
+    std::cout << "Vector elements: " << '\n';
     for (const auto& el : vec) {
         std::cout << '\t' << *el << '\n';
     }
@@ -26,5 +26,5 @@ void sub10(int* const ptr) {
 }
 
 void sub10(std::vector<std::shared_ptr<int>>& vec) {
-    
+
 }
