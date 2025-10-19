@@ -4,7 +4,7 @@
 
 std::vector<std::shared_ptr<int>> generate(int count) {
     std::vector<std::shared_ptr<int>> vec;
-    for (int i{0}; i < count; ++i) {
+    for (size_t i{0}; i < count; ++i) {
         vec.push_back(std::make_shared<int>(i));
     }
     return vec;
@@ -22,7 +22,6 @@ void add10(std::vector<std::shared_ptr<int>>& vec) {
         if (el) {
             *el += 10;
         }
-        
     }
 }
 
